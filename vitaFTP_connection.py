@@ -2,7 +2,6 @@ import ftplib
 from pathlib import Path
 import re, json
 
-#td = Path(r'C:\\Users\\user\\Desktop\\JP Screenshots\\PSVITA\\CompiledScreenshots') #target directory as a path object
 rd = Path(r'C:\\Users\\user\\Desktop\\JP Screenshots\\PSVITA\\ReviewedScreenshots') #reviewed directory as a path object
 fileSaveDir = Path(r'C:\\Users\\user\\Desktop\\JP Screenshots\\PSVITA\\FTPTEST') #directory for saving screenshots
 jsonFilePath = Path(r'C:\\Users\\user\\Desktop\\JP Screenshots\\PSVITA\\file_list.json')
@@ -75,7 +74,7 @@ def processDirectory(base_dir, re_pattern):
     ftp.cwd(base_dir) #navigate to base screenshot directory on vita
     ftp.retrlines("LIST", lambda line: dir_list.append(line[-2:])) #get directory names in base SCREENSHOTS DIRECTORY
 
-    for dir in dir_list: #ADD PS1 SCREENSHOTS TO A MAIN SCRIPT. MAKE IT A METHOD?
+    for dir in dir_list: 
         ftp.cwd(dir) #go to directory
 
         file_names = fileNamesInDir(re_pattern) #return file names for further use for downloading
